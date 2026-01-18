@@ -1,37 +1,93 @@
-/* ダークモードボタンを右上に固定 */
+/* 基本スタイル（ダーク：黒背景に緑文字） */
+body {
+    background: #222;
+    color: #0f0;
+    font-family: sans-serif;
+    transition: 0.3s;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ダークモードボタンの固定 */
 #dark-mode-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000; /* 一番手前に表示 */
-    background: #333;
-    color: #0f0;
-    border: 2px solid #0f0;
+    z-index: 1000;
+    background: #fff;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 24px;
+    border: 2px solid #0f0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* 機能一覧メニュー */
+#feature-menu {
+    margin-top: 60px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.feature-btn {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #0f0;
+    font-weight: bold;
+    color: #0f0;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-/* ダークモード時のボタン色反転 */
+.feature-btn:hover {
+    background: #0f0;
+    color: #222;
+}
+
+/* 機能表示の切り替え */
+.feature-content {
+    display: none; /* 通常は隠す */
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed #0f0;
+}
+
+.feature-content.active {
+    display: block; /* 選択されたものだけ表示 */
+}
+
+/* --- ダークモード有効時のスタイル（白背景に赤文字） --- */
+body.dark-mode {
+    background: #fff;
+    color: #222;
+}
+
 body.dark-mode #dark-mode-toggle {
+    border-color: #f00;
+}
+
+body.dark-mode header, 
+body.dark-mode footer, 
+body.dark-mode .feature-btn, 
+body.dark-mode .timer-container,
+body.dark-mode .feature-content {
     background: #eee;
     color: #222;
     border-color: #f00;
 }
 
-/* コンテンツの表示・非表示 */
-.feature-content {
-    display: none; /* 初期状態は全部消す */
-    padding: 20px;
-}
-
-/* 選択されたものだけ表示するためのクラス（JSで制御） */
-.feature-content.active {
-    display: block;
+body.dark-mode a, 
+body.dark-mode .logo, 
+body.dark-mode #timer-display,
+body.dark-mode .feature-btn {
+    color: #f00;
 }
