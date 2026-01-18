@@ -7,6 +7,7 @@
 
 <nav id="feature-menu">
     <div class="feature-grid">
+        <!-- 以前のスタイルを維持するため class="feature-btn" を使用 -->
         <button class="feature-btn" onclick="showFeature('timer-section')">タイマー</button>
         <button class="feature-btn" onclick="showFeature('unit-converter')">単位変換</button>
         <button class="feature-btn" onclick="showFeature('color-palette')">色見本帳</button>
@@ -23,16 +24,15 @@
 </nav>
 
 <main>
-    <!-- 各機能の表示エリア -->
     <section id="timer-section" class="feature-content">
         <div class="timer-container">
             <div id="timer-display">00:00</div>
-            <!-- タイマーの操作ボタンなど -->
+            <p>※ここにタイマーのボタン等が入ります</p>
         </div>
     </section>
 
-    <!-- 他のセクション（中身はこれから作成） -->
-    <section id="unit-converter" class="feature-content"><h2>単位変換</h2></section>
-    <section id="color-palette" class="feature-content"><h2>色見本帳</h2></section>
-    <section id="voting-system" class="feature-content"><h2>投票システム</h2></section>
+    <!-- 他の機能用の空セクション -->
+    <section id="unit-converter" class="feature-content"><h2>単位変換（開発中）</h2></section>
+    <section id="color-palette" class="feature-content"><h2>色見本帳（開発中）</h2></section>
+    <section id="voting-system" class="feature-content"><h2>投票システム（開発中）</h2></section>
 </main>
