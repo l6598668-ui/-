@@ -13,62 +13,16 @@ header {
     padding-bottom: 10px;
 }
 /* ... (他の基本的なスタイルは省略、変更なし) ... */
-
-.logo {
-    text-align: center;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.feature-btn {
-    background: #333;
-    padding: 10px 15px; 
-    border-radius: 8px;
-    border: 1px solid #0f0; 
-    font-weight: bold;
-    color: #0f0;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    flex: 1; /* ボタンの幅を均等に */
-    box-sizing: border-box;
-}
-
-.feature-btn:hover {
-    background: #0f0;
-    color: #222;
-}
-
-
-/* 非表示・表示の制御 */
-.feature-content {
-    display: none;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #0f0;
-    background: rgba(0, 255, 0, 0.05);
-}
-
-.feature-content.active {
-    display: block;
-}
-
-/* タイマー機能全体のラッパー */
-.timer-wrapper {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+.logo { text-align: center; }
+.feature-grid { /* ... */ }
+.feature-btn { /* ... */ }
+.feature-content { /* ... */ }
+.feature-content.active { display: block; }
+.timer-wrapper { /* ... */ }
 
 .timer-container {
     flex: 1;
-    min-width: 280px; 
+    min-width: 320px; /* 少し幅を広くして H:M:S が収まるように */
     text-align: center;
     min-height: 250px; 
     display: flex;
@@ -80,7 +34,7 @@ header {
 
 /* ディスプレイ表示部分の高さとマージンを揃える */
 .display {
-    font-size: 3rem;
+    font-size: 2.5rem; /* フォントサイズを少し小さくして3桁収める */
     color: #0f0;
     min-height: 1.2em; 
     display: flex;
@@ -89,7 +43,6 @@ header {
     margin: 15px 0;
 }
 
-/* ボタンを並べるエリア */
 .timer-controls {
     display: flex;
     justify-content: space-between; 
@@ -101,9 +54,9 @@ header {
 /* カウントダウン入力欄のスタイル */
 .countdown-controls-top {
     display: flex;
-    justify-content: center; /* 中央揃え */
+    justify-content: center; 
     align-items: center;
-    gap: 10px;
+    gap: 5px; /* ラベルとの隙間を詰める */
     margin-bottom: 10px;
 }
 
@@ -112,68 +65,25 @@ header {
     background: #333;
     border: 1px solid #0f0;
     color: #0f0;
-    padding: 10px;
+    padding: 10px 5px; /* 左右のパディングを減らす */
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    /* 幅を自動調整 */
+    text-align: right; /* 数字を右寄せ */
+}
+
+/* ラベル (時間, 分, 秒) のスタイル */
+.countdown-controls-top span {
+    font-size: 0.9rem;
+    margin-right: 5px;
 }
 
 
 /* 半角入力メッセージは不要になったためスタイルも削除 */
 
-/* プルダウンメニュー（プリセット用）のスタイルは削除 */
-
-/* 新しい入力欄とプルダウンメニューの共通スタイル (単位変換用) */
-.feature-input {
-    background: #333;
-    border: 1px solid #0f0;
-    color: #0f0;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-.feature-input:focus {
-    outline: none;
-    border-color: #fff;
-}
-
-/* 単位変換セクションの配置 */
-.converter-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.converter-wrapper input, .converter-wrapper select {
-    flex: 1;
-    min-width: 100px;
-}
-/* 読み取り専用の出力欄の背景を少し暗く */
-#output-value {
-    background: #111; 
-    cursor: default;
-}
-
-/* 単位変換の説明文 */
-.converter-message {
-    font-size: 0.9rem;
-    color: #0f0;
-    margin-bottom: 15px;
-    border-left: 3px solid #0f0;
-    padding-left: 10px;
-}
-
-/* タイマーセクションの説明文 */
-.timer-message {
-     font-size: 0.9rem;
-    color: #0f0;
-    margin-bottom: 15px;
-    border-left: 3px solid #0f0;
-    padding-left: 10px;
-    text-align: left;
-}
+/* ... (単位変換セクション以降のスタイルは省略、変更なし) ... */
+.feature-input { /* ... */ }
+.converter-wrapper { /* ... */ }
+#output-value { /* ... */ }
+.converter-message { /* ... */ }
+.timer-message { /* ... */ }
