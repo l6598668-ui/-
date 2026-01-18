@@ -6,8 +6,6 @@
     <title>NEON PORTAL</title>
     <!-- ここで style.css を読み込みます -->
     <link rel="stylesheet" href="style.css">
-    <!-- JavaScriptファイルは<body>の閉じタグ直前が良いですが、とりあえずここで -->
-    <!-- <script src="script.js"></script> --> 
 </head>
 <body>
 
@@ -33,30 +31,87 @@
 </nav>
 
 <main>
+    <!-- タイマー機能セクション (初期表示) -->
     <section id="timer-section" class="feature-content active">
         <div class="timer-container">
             <div id="timer-display">00:00</div>
-            <p>TIMER ACTIVE</p>
+            <div class="timer-controls">
+                <button id="start-btn" class="feature-btn">スタート</button>
+                <button id="stop-btn" class="feature-btn">ストップ</button>
+                <button id="reset-btn" class="feature-btn">リセット</button>
+            </div>
         </div>
     </section>
+    
+    <!-- 他の機能セクション (空の状態) -->
     <section id="unit-converter" class="feature-content"><h2>UNIT CONVERTER</h2></section>
     <section id="color-palette" class="feature-content"><h2>COLOR PALETTE</h2></section>
+    <section id="calculator" class="feature-content"><h2>CALCULATOR</h2></section>
+    <section id="study-counter" class="feature-content"><h2>STUDY COUNTER</h2></section>
+    <section id="flashcards" class="feature-content"><h2>FLASHCARDS</h2></section>
+    <section id="random-picker" class="feature-content"><h2>RANDOM PICKER</h2></section>
+    <section id="bookmarks" class="feature-content"><h2>BOOKMARKS</h2></section>
+    <section id="progress-bar" class="feature-content"><h2>PROGRESS BAR</h2></section>
+    <section id="rss-reader" class="feature-content"><h2>RSS READER</h2></section>
+    <section id="weather-api" class="feature-content"><h2>WEATHER API</h2></section>
     <section id="voting-system" class="feature-content"><h2>VOTING SYSTEM</h2></section>
+
 </main>
 
-<!-- JSのコードはここにペーストするか、外部ファイルとして読み込んでください -->
 <script>
-// 機能切り替えだけを行うJSコード
-function showFeature(featureId) {
-    const contents = document.querySelectorAll('.feature-content');
-    contents.forEach(content => {
-        content.classList.remove('active');
-    });
-    const target = document.getElementById(featureId);
-    if (target) {
-        target.classList.add('active');
+    // --- 機能切り替えロジック ---
+    function showFeature(featureId) {
+        const contents = document.querySelectorAll('.feature-content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+        const target = document.getElementById(featureId);
+        if (target) {
+            target.classList.add('active');
+        }
     }
-}
+
+    // --- タイマーロジック ---
+    let timerInterval = null;
+    let seconds = 0;
+    const timerDisplay = document.getElementById('timer-display');
+    const startBtn = document.getElementById('start-btn');
+    const stopBtn = document.getElementById('stop-btn');
+    const resetBtn = document.getElementById('reset-btn');
+
+    function updateTimer() {
+        seconds++;
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        timerDisplay.textContent = 
+            `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    startBtn.addEventListener('click', () => {
+        if (!timerInterval) {
+            timerInterval = setInterval(updateTimer, 1000);
+            startBtn.disabled = true;
+        }
+    });
+
+    stopBtn.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        startBtn.disabled = false;
+    });
+
+    resetBtn.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        seconds = 0;
+        timerDisplay.textContent = '00:00';
+        startBtn.disabled = false;
+    });
+
+    // ページ読み込み時の初期設定
+    window.onload = () => {
+        showFeature('timer-section'); // タイマーを初期表示
+    };
 </script>
 
 </body>
