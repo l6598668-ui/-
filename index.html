@@ -268,7 +268,7 @@
     }
 
 
-    // --- 単位変換ロジック (小数点桁数を8に変更) ---
+    // --- 単位変換ロジック (小数点桁数を動的に変更) ---
     const inputValueEl = document.getElementById('input-value');
     const inputUnitEl = document.getElementById('input-unit');
     const outputValueEl = document.getElementById('output-value');
@@ -289,7 +289,9 @@
         const valueInMeters = inputValue * conversionRates[inputUnit];
         const outputValue = valueInMeters / conversionRates[outputUnit];
 
-        outputValueEl.value = outputValue.toFixed(8); // 小数点8桁で表示
+        // ここが変更点: 不要なゼロを削除して、読みやすい形式にする
+        // toPrecision(10)で有効数字10桁にしてから、parseFloatで末尾のゼロを削除
+        outputValueEl.value = parseFloat(outputValue.toPrecision(10)).toString(); 
     }
     // イベントリスナーはHTMLタグの属性 (oninput, onchange) で設定済みです
 
