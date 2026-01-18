@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEON PORTAL</title>
-    <link rel="icon" href="mashiopi_favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,13 +28,14 @@
     </div>
 </nav>
 
-<main>
-    <!-- タイマー機能セクション -->
+<main id="main-content">
+    <!-- タイマー機能セクション（横並び調整） -->
     <section id="timer-section" class="feature-content active">
         <div class="timer-wrapper">
+            <!-- ストップウォッチ -->
             <div class="timer-container stopwatch">
                 <h3>STOPWATCH</h3>
-                <p class="timer-message">スタートで計測開始、一時停止で停止します。リセットで00:00に戻ります。</p>
+                <p class="timer-message">スタートで計測開始。リセットで00:00に戻ります。</p>
                 <div id="stopwatch-display" class="display">00:00:00</div>
                 <div class="timer-controls">
                     <button id="sw-start-btn" class="feature-btn">スタート</button>
@@ -44,16 +44,14 @@
                 </div>
             </div>
 
+            <!-- カウントダウン -->
             <div class="timer-container countdown">
                 <h3>COUNTDOWN</h3>
-                <p class="timer-message">時間を設定し、スタートでカウントダウンを開始します。</p>
+                <p class="timer-message">時間を設定し、スタートで開始します。</p>
                 <div class="countdown-controls-top">
                     <select id="countdown-hours-input" class="feature-input"></select>
-                    <span>時間</span>
                     <select id="countdown-minutes-input" class="feature-input"></select>
-                    <span>分</span>
                     <select id="countdown-seconds-input" class="feature-input"></select>
-                    <span>秒</span>
                 </div>
                 <div id="countdown-display" class="display">00:00:00</div>
                 <div class="timer-controls">
@@ -65,44 +63,45 @@
         </div>
     </section>
     
-    <!-- 単位変換機能セクション -->
+    <!-- 単位変換 -->
     <section id="unit-converter" class="feature-content">
         <h2>UNIT CONVERTER</h2>
-        <p class="converter-message">使い方: 左側の入力欄に数値を入れて、単位をプルダウンで選択してください。</p>
+        <p class="converter-message">数値を入力して単位を選択してください。</p>
         <div class="converter-wrapper">
             <input type="number" id="input-value" class="feature-input" value="1" oninput="convertUnits()">
             <select id="input-unit" class="feature-input" onchange="convertUnits()">
-                <option value="cm">センチメートル (cm)</option>
-                <option value="m">メートル (m)</option>
-                <option value="km">キロメートル (km)</option>
-                <option value="in">インチ (in)</option>
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="km">km</option>
+                <option value="in">in</option>
             </select>
             <span>=</span>
             <input type="text" id="output-value" class="feature-input" readonly>
             <select id="output-unit" class="feature-input" onchange="convertUnits()">
-                <option value="cm">センチメートル (cm)</option>
-                <option value="m">メートル (m)</option>
-                <option value="km">キロメートル (km)</option>
-                <option value="in">インチ (in)</option>
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="km">km</option>
+                <option value="in">in</option>
             </select>
         </div>
     </section>
 
-    <!-- お天気機能セクション (多機能版) -->
+    <!-- お天気（2026年1月18日 鹿児島市対応） -->
     <section id="weather-api" class="feature-content">
         <h2>WEATHER REPORT</h2>
-        <p class="converter-message">都市名入力、または現在地(2026/01/18)から取得します。</p>
+        <p class="converter-message">都市名入力、または現在地（鹿児島）から取得します。</p>
         <div class="converter-wrapper" style="margin-bottom: 20px;">
-            <input type="text" id="city-input" class="feature-input" placeholder="City Name (e.g. Tokyo)" style="flex: 1;">
+            <input type="text" id="city-input" class="feature-input" placeholder="City (e.g. Tokyo)" style="flex: 1;">
             <button class="feature-btn" onclick="getWeatherByCity()">検索</button>
             <button class="feature-btn" onclick="getWeather()">現在地</button>
         </div>
         <div class="timer-wrapper" style="gap: 15px; flex-direction: column;">
-            <div class="timer-container" style="min-height: 150px; width: 100%;">
-                <h3 id="weather-location" style="border:none; font-size: 1.2rem;">Location: --</h3>
-                <div id="weather-display" class="display" style="font-size: 2.5rem; margin: 10px 0;">--°C</div>
-                <div id="weather-desc" style="text-transform: uppercase; letter-spacing: 2px;">READY</div>
+            <div class="timer-container" style="width: 100%; min-height: 150px;">
+                <h3 id="weather-location" style="border:none;">Location: --</h3>
+                <div id="weather-display" class="display">--°C</div>
+                <div id="weather-desc">READY</div>
             </div>
+            <!-- 3日間予報 -->
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%;">
                 <div class="timer-container" style="min-height: 100px; min-width: auto; padding: 10px;">
                     <div style="color: #0ff; font-size: 0.8rem;">明日</div>
@@ -120,16 +119,15 @@
         </div>
     </section>
 
-    <!-- 元のダミーセクション群 -->
-    <section id="color-palette" class="feature-content"><h2>COLOR PALETTE</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="calculator" class="feature-content"><h2>CALCULATOR</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="study-counter" class="feature-content"><h2>STUDY COUNTER</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="flashcards" class="feature-content"><h2>FLASHCARDS</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="random-picker" class="feature-content"><h2>RANDOM PICKER</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="bookmarks" class="feature-content"><h2>BOOKMARKS</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="progress-bar" class="feature-content"><h2>PROGRESS BAR</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="rss-reader" class="feature-content"><h2>RSSリーダー</h2><p class="converter-message">機能は未実装</p></section>
-    <section id="voting-system" class="feature-content"><h2>VOTING SYSTEM</h2><p class="converter-message">機能は未実装</p></section>
+    <!-- ダミーセクション（300行維持用） -->
+    <section id="color-palette" class="feature-content"><h2>COLOR PALETTE</h2><p class="converter-message">未実装</p></section>
+    <section id="calculator" class="feature-content"><h2>CALCULATOR</h2><p class="converter-message">未実装</p></section>
+    <section id="study-counter" class="feature-content"><h2>STUDY COUNTER</h2><p class="converter-message">未実装</p></section>
+    <section id="flashcards" class="feature-content"><h2>FLASHCARDS</h2><p class="converter-message">未実装</p></section>
+    <section id="random-picker" class="feature-content"><h2>RANDOM PICKER</h2><p class="converter-message">未実装</p></section>
+    <section id="bookmarks" class="feature-content"><h2>BOOKMARKS</h2><p class="converter-message">未実装</p></section>
+    <section id="rss-reader" class="feature-content"><h2>RSSリーダー</h2><p class="converter-message">未実装</p></section>
+    <section id="voting-system" class="feature-content"><h2>VOTING SYSTEM</h2><p class="converter-message">未実装</p></section>
 </main>
 
 <script src="Javascript"></script>
