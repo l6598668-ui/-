@@ -1,75 +1,65 @@
-/* --- 基本設定（通常モード：黒背景・緑文字） --- */
+/* 全体背景：黒、文字：緑 */
 body {
-    background: #000; /* 真っ黒 */
-    color: #0f0;       /* ネオングリーン */
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
     margin: 0;
     padding: 20px;
-    transition: background 0.3s, color 0.3s;
+    text-shadow: 0 0 5px #0f0;
 }
 
-/* 右上固定ボタン */
-#dark-mode-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border: 2px solid #0f0;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 9999;
+header {
+    text-align: center;
+    border-bottom: 2px solid #0f0;
+    margin-bottom: 30px;
 }
 
-/* メニューの見た目（以前のデザインを再現） */
-#feature-menu { margin-top: 40px; }
+.logo {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+/* 機能メニュー */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
 }
+
 .feature-btn {
-    background: #333;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #0f0;
-    font-weight: bold;
+    background: #111;
     color: #0f0;
-    text-align: center;
+    padding: 20px;
+    border: 2px solid #0f0;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
 }
+
 .feature-btn:hover {
     background: #0f0;
-    color: #222;
+    color: #000;
+    box-shadow: 0 0 15px #0f0;
 }
 
-/* コンテンツ表示切り替え */
-.feature-content { display: none; margin-top: 20px; }
-.feature-content.active { display: block; }
-
-/* --- ダークモード（白背景・赤文字） --- */
-body.dark-mode {
-    background: #fff;
-    color: #222;
+/* 機能表示エリア */
+.feature-content {
+    display: none; /* デフォルト非表示 */
+    margin-top: 40px;
+    padding: 30px;
+    border: 1px double #0f0;
+    background: rgba(0, 255, 0, 0.05);
 }
 
-/* ダークモード時に赤色に変える要素を一括指定 */
-body.dark-mode .feature-btn,
-body.dark-mode .timer-container,
-body.dark-mode header,
-body.dark-mode footer {
-    background: #eee;
-    color: #f00;      /* 赤文字 */
-    border-color: #f00;
+.feature-content.active {
+    display: block; /* 選択中のみ表示 */
 }
 
-body.dark-mode #dark-mode-toggle {
-    border-color: #f00;
-}
-
-body.dark-mode .logo,
-body.dark-mode #timer-display {
-    color: #f00;
+/* タイマー表示部分（例） */
+#timer-display {
+    font-size: 5rem;
+    text-align: center;
+    margin: 20px 0;
 }
