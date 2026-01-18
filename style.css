@@ -1,4 +1,4 @@
-/* --- ネオンデザイン固定（CSSのみで完結） --- */
+/* --- ネオンデザイン固定（style.cssの内容） --- */
 
 body {
     background: #222; /* 黒に近い背景 */
@@ -8,7 +8,6 @@ body {
     padding: 20px;
 }
 
-/* 機能一覧ボタンの並び */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -16,9 +15,8 @@ body {
     margin: 20px 0;
 }
 
-/* ボタンのデザイン：以前の指定通り */
 .feature-btn {
-    background: #333;   /* ボタンの暗い背景 */
+    background: #333;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #0f0; 
@@ -29,22 +27,19 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ホバー時の色反転：以前の指定通り */
 .feature-btn:hover {
     background: #0f0;
     color: #222;
 }
 
-/* 各機能の表示エリア（最初は隠す） */
 .feature-content {
     display: none;
     margin-top: 20px;
     padding: 20px;
     border: 1px solid #0f0;
-    background: rgba(0, 255, 0, 0.05); /* ほんのり緑がかった背景 */
+    background: rgba(0, 255, 0, 0.05);
 }
 
-/* JSで active クラスがついた時だけ表示 */
 .feature-content.active {
     display: block;
 }
