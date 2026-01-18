@@ -1,11 +1,29 @@
-body {
-  background: #222;
-  color: #0f0;
-  text-align: center;
-  padding-top: 50px;
+header {
+  background: #333;      /* ヘッダーの背景（濃いグレー） */
+  display: flex;         /* 横並びにする設定 */
+  justify-content: space-between; /* ロゴとメニューを左右に離す */
+  align-items: center;   /* 上下中央に揃える */
+  padding: 10px 20px;
+  border-bottom: 2px solid #0f0; /* 下側にだけ緑の線を引く */
 }
-h1 {
-  border: 5px solid #0f0;
-  padding: 20px;
-  display: inline-block;
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+nav ul {
+  list-style: none;      /* メニューの「・」を消す */
+  display: flex;         /* メニューを横に並べる */
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: 20px;     /* メニュー同士の間隔 */
+}
+
+nav a {
+  color: #0f0;           /* リンクの色を緑に */
+  text-decoration: none; /* 下線を消す */
 }
