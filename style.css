@@ -155,6 +155,7 @@ h2, h3 {
 
 footer {
     padding: 10px;
+    padding-bottom: 5px; 
     border-top: 1px solid #0f0;
     text-align: center;
     font-size: 0.8rem;
