@@ -1,30 +1,25 @@
-// ... (既存のタイマーコードはそのまま残す) ...
+// 機能切り替え関数
+function showFeature(featureId) {
+    // 全てのコンテンツを一旦非表示にする
+    const contents = document.querySelectorAll('.feature-content');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
 
-/* --- 機能切り替えとダークモードのロジックをここに追加 --- */
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
-
-// ダークモード切り替え機能
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    // ブラウザに設定を記憶させる
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
+    // 指定されたIDのコンテンツだけ表示する
+    const target = document.getElementById(featureId);
+    if (target) {
+        target.classList.add('active');
     }
-});
-
-// ページ読み込み時に記憶した設定を適用
-if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('dark-mode');
 }
 
-// 機能表示切り替え（タイマーだけ表示する例）
-const timerSection = document.getElementById('timer-section');
-
-// 初期表示でメニューだけ見せて、機能は隠す
-timerSection.style.display = 'block'; // デフォルトでタイマーを表示したい場合
-document.getElementById('feature-menu').style.display = 'block';
-
-// ここに他の機能（計算機、色見本帳など）の表示・非表示ロジックを追加していきます
+// ページ読み込み時の初期表示（例：メニューだけ出す、またはタイマーを出す）
+window.onload = () => {
+    // localStorageからダークモードの状態を復元する既存コードはそのまま
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // 最初はタイマーを表示しておく場合
+    showFeature('timer-section');
+};
