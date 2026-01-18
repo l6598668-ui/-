@@ -1,65 +1,68 @@
-/* 全体背景：黒、文字：緑 */
+/* --- 以前いただいたデザインを忠実に再現 --- */
+
 body {
-    background-color: #000;
-    color: #0f0;
-    font-family: 'Courier New', monospace;
+    background: #222; /* 基本の背景色 */
+    color: #0f0;      /* ネオングリーン */
+    font-family: sans-serif;
     margin: 0;
     padding: 20px;
-    text-shadow: 0 0 5px #0f0;
 }
 
-header {
-    text-align: center;
-    border-bottom: 2px solid #0f0;
-    margin-bottom: 30px;
+/* 機能一覧メニューのレイアウト */
+#feature-menu {
+    margin-top: 40px;
 }
 
-.logo {
-    font-size: 2.5rem;
-    letter-spacing: 5px;
-}
-
-/* 機能メニュー */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
+    margin: 20px;
 }
 
+/* ボタンのスタイル（以前の指定通り） */
 .feature-btn {
-    background: #111;
-    color: #0f0;
+    background: #333;   /* ボタン背景 */
     padding: 20px;
-    border: 2px solid #0f0;
     border-radius: 8px;
+    border: 1px solid #0f0; /* 緑の枠線 */
+    text-decoration: none;
     font-weight: bold;
+    color: #0f0;        /* 緑文字 */
+    text-align: center;
     cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
+    transition: background 0.3s;
+    display: block;
 }
 
+/* ホバー時の反転（以前の指定通り） */
 .feature-btn:hover {
     background: #0f0;
-    color: #000;
-    box-shadow: 0 0 15px #0f0;
+    color: #222;
 }
 
-/* 機能表示エリア */
+/* 機能コンテンツの表示切り替え */
 .feature-content {
-    display: none; /* デフォルト非表示 */
-    margin-top: 40px;
-    padding: 30px;
-    border: 1px double #0f0;
-    background: rgba(0, 255, 0, 0.05);
+    display: none;      /* 基本は隠す */
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #0f0;
 }
 
+/* JSで active クラスがついた時だけ表示 */
 .feature-content.active {
-    display: block; /* 選択中のみ表示 */
+    display: block;
 }
 
-/* タイマー表示部分（例） */
+/* タイマー表示などの文字色 */
 #timer-display {
-    font-size: 5rem;
+    color: #0f0;
+    font-size: 3rem;
     text-align: center;
-    margin: 20px 0;
+}
+
+/* ロゴのスタイル */
+.logo {
+    color: #0f0;
+    text-align: center;
 }
