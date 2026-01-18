@@ -27,3 +27,13 @@ h2, h3 { color: #0ff; margin-bottom: 15px; border-bottom: 1px dashed #0ff; paddi
 
 .feature-input { background: #333; border: 1px solid #0f0; color: #0f0; padding: 8px; border-radius: 4px; }
 .converter-wrapper { display: flex; align-items: center; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #0f0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #0f0;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
