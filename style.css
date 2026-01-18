@@ -26,7 +26,7 @@ header {
 
 .feature-btn {
     background: #333;
-    padding: 20px;
+    padding: 10px 15px; /* ボタンを少し小さく */
     border-radius: 8px;
     border: 1px solid #0f0; 
     font-weight: bold;
@@ -34,6 +34,8 @@ header {
     text-align: center;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
+    width: 100%; /* ボタン幅を親要素に合わせる */
+    box-sizing: border-box;
 }
 
 .feature-btn:hover {
@@ -53,16 +55,47 @@ header {
     display: block;
 }
 
-/* タイマー固有のスタイル */
-#timer-display {
-    font-size: 5rem;
+/* タイマー機能全体のラッパー: 横並びにするためのFlexbox */
+.timer-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* 画面が狭い時に折り返す */
+}
+
+.timer-container {
+    flex: 1; /* 幅を均等に */
+    min-width: 250px;
     text-align: center;
-    margin-bottom: 20px;
+}
+
+/* ディスプレイ表示部分 */
+.display {
+    font-size: 3rem; /* 少し小さく */
+    margin-bottom: 15px;
     color: #0f0;
 }
 
 .timer-controls {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
 }
+
+/* カウントダウン入力フォームのスタイル */
+#countdown-input {
+    background: #333;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 10px;
+    width: 80px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: center;
+}
+/* 入力フォームのフォーカス時 */
+#countdown-input:focus {
+    outline: none;
+    border-color: #fff;
+}
+
