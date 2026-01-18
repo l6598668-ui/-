@@ -26,7 +26,7 @@ header {
 
 .feature-btn {
     background: #333;
-    padding: 10px 15px; /* ボタンを少し小さく */
+    padding: 10px 15px; 
     border-radius: 8px;
     border: 1px solid #0f0; 
     font-weight: bold;
@@ -34,7 +34,7 @@ header {
     text-align: center;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
-    width: 100%; /* ボタン幅を親要素に合わせる */
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -55,23 +55,21 @@ header {
     display: block;
 }
 
-/* タイマー機能全体のラッパー: 横並びにするためのFlexbox */
 .timer-wrapper {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap; /* 画面が狭い時に折り返す */
+    flex-wrap: wrap;
 }
 
 .timer-container {
-    flex: 1; /* 幅を均等に */
+    flex: 1;
     min-width: 250px;
     text-align: center;
 }
 
-/* ディスプレイ表示部分 */
 .display {
-    font-size: 3rem; /* 少し小さく */
+    font-size: 3rem;
     margin-bottom: 15px;
     color: #0f0;
 }
@@ -82,20 +80,34 @@ header {
     gap: 5px;
 }
 
-/* カウントダウン入力フォームのスタイル */
-#countdown-input {
+/* カウントダウン入力欄のスタイル */
+.countdown-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.countdown-inputs input[type="number"] {
     background: #333;
     border: 1px solid #0f0;
     color: #0f0;
     padding: 10px;
-    width: 80px;
-    margin-bottom: 15px;
+    width: 60px;
     font-size: 1rem;
     text-align: center;
+    /* Firefoxで出る数値調整ボタンを隠す */
+    -moz-appearance: textfield; 
 }
-/* 入力フォームのフォーカス時 */
-#countdown-input:focus {
+/* Chrome, Safari, Edgeで出る数値調整ボタンを隠す */
+.countdown-inputs input[type="number"]::-webkit-outer-spin-button,
+.countdown-inputs input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.countdown-inputs input[type="number"]:focus {
     outline: none;
     border-color: #fff;
 }
-
