@@ -5,26 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>メンテナンス</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QCY3N22YKQ');
-</script>
+    <script async src="https://www.googletagmanager.com"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QCY3N22YKQ');
+    </script>
     
     <style>
-        
-          .twitter-post-container {
-          max-width: 500px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-      
         :root {
-            --bg-color: #f0f2f5;
+            --bg-color: #eeeeee;
             --card-color: #ffffff;
             --text-color: #333;
             --accent-color: #007bff;
@@ -38,16 +29,20 @@
             padding: 0;
             color: var(--text-color);
         }
-        h1 { text-align: center; margin-bottom: 30px; font-weight: 300; }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            font-weight: 300; 
+        }
         
-             .menu-grid {
-                display: grid;
-                grid-template-columns: 100px 100px; 
-                gap: 15px;
-                max-width: 500px;
-                margin: 0 auto;
-                justify-content: center;
-}
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 100px 100px; 
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            justify-content: center;
+        }
         
         .menu-item {
             background: var(--card-color);
@@ -64,9 +59,19 @@
             color: var(--text-color);
             border: none;
         }
-        .menu-item:active { transform: scale(0.9); background: #eef; }
-        .menu-item i { font-size: 32px; margin-bottom: 8px; font-style: normal; }
-        .menu-item span { font-size: 11px; font-weight: bold; }
+        .menu-item:active { 
+            transform: scale(0.9); 
+            background: #eef; 
+        }
+        .menu-item i { 
+            font-size: 32px; 
+            margin-bottom: 8px; 
+            font-style: normal; 
+        }
+        .menu-item span { 
+            font-size: 11px; 
+            font-weight: bold; 
+        }
 
         .site-header {
             background-color: var(--brand-black);
@@ -74,20 +79,40 @@
             padding: 10px 20px;
             text-align: right;
         }
-        .x-icon-link {
-            color: var(--brand-yellow);
-            font-size: 24px;
-            text-decoration: none;
+
+        .header-links {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
         }
 
+        .contact-link {
+            color: var(--brand-yellow);
+            text-decoration: none;
+            font-size: 14px; 
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid var(--brand-yellow);
+            border-radius: 5px;
+        }
+
+        .x-icon-link {
+            color: var(--brand-yellow);
+            text-decoration: none;
+            font-size: 14px; 
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-
     <header class="site-header">
-        <a href="https://x.com/Brandmaker_Now" target="_blank" rel="noopener noreferrer" class="x-icon-link">
-            公式𝕏をフォローする
-        </a>
+        <div class="header-links">
+            <a href="contact.html" class="contact-link">お問い合わせ</a>
+            <a href="https://x.com/Brandmaker_Now" target="_blank" rel="noopener noreferrer" class="x-icon-link">
+                公式𝕏をフォローする
+            </a>
+        </div>
     </header>
 
     <h1>アプリ一覧</h1>
@@ -97,11 +122,5 @@
         <a href="NewsTyping/NewsTyping.html" class="menu-item"><i>⌨️</i><span>NewsTyping</span></a>
     </div>
 
-        <!-- ここから追加: Xの埋め込みポストエリア -->
-    <div class="twitter-post-container">
-      <a class="twitter-timeline" href="https://twitter.com/Brandmaker_Now?ref_src=twsrc%5Etfw">Tweets by Brandmaker_Now</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-  
 </body>
 </html>
-
